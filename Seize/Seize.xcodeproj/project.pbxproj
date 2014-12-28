@@ -17,6 +17,7 @@
 		1A8A9C911A4FD58600C4768C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A9C901A4FD58600C4768C /* Main.storyboard */; };
 		1A8A9C941A4FD63F00C4768C /* InboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C931A4FD63F00C4768C /* InboxController.m */; };
 		1A8A9C971A4FD69D00C4768C /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C961A4FD69D00C4768C /* ToDoItem.m */; };
+		1A8A9C9D1A50515900C4768C /* TodayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C9C1A50515900C4768C /* TodayController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		1A8A9C931A4FD63F00C4768C /* InboxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxController.m; sourceTree = "<group>"; };
 		1A8A9C951A4FD69D00C4768C /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
 		1A8A9C961A4FD69D00C4768C /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
+		1A8A9C9B1A50515900C4768C /* TodayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayController.h; sourceTree = "<group>"; };
+		1A8A9C9C1A50515900C4768C /* TodayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				1A8A9C791A4FD56500C4768C /* LaunchScreen.xib */,
 				1A8A9C921A4FD63F00C4768C /* InboxController.h */,
 				1A8A9C931A4FD63F00C4768C /* InboxController.m */,
+				1A8A9C9B1A50515900C4768C /* TodayController.h */,
+				1A8A9C9C1A50515900C4768C /* TodayController.m */,
 				1A8A9C951A4FD69D00C4768C /* ToDoItem.h */,
 				1A8A9C961A4FD69D00C4768C /* ToDoItem.m */,
 				1A8A9C671A4FD56500C4768C /* Supporting Files */,
@@ -235,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8A9C971A4FD69D00C4768C /* ToDoItem.m in Sources */,
+				1A8A9C9D1A50515900C4768C /* TodayController.m in Sources */,
 				1A8A9C941A4FD63F00C4768C /* InboxController.m in Sources */,
 				1A8A9C731A4FD56500C4768C /* SecondViewController.m in Sources */,
 				1A8A9C6D1A4FD56500C4768C /* AppDelegate.m in Sources */,
@@ -422,6 +428,7 @@
 				1A8A9C8C1A4FD56500C4768C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A8A9C8D1A4FD56500C4768C /* Build configuration list for PBXNativeTarget "SeizeTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				1A8A9C8F1A4FD56500C4768C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2A4595F4-9A87-4618-BE39-F3B6662DE5F4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Seize</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AE7791AD788DD230DCC03DD552204BEA55D975A6</key>
+		<string>https://github.com/milooy/SiezeTimer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Seize/Seize.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AE7791AD788DD230DCC03DD552204BEA55D975A6</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/milooy/SiezeTimer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AE7791AD788DD230DCC03DD552204BEA55D975A6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AE7791AD788DD230DCC03DD552204BEA55D975A6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SiezeTimer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

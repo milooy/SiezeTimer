@@ -7,15 +7,14 @@
 //
 
 #import "InboxController.h"
-#import "todayController.h"
+#import "TodayController.h"
 #import "ToDoItem.h"
 
-@interface InboxController () {
-//    NSMutableArray* _toDoItems;
-}
+@interface InboxController ()
 @end
 
 @implementation InboxController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -32,21 +31,27 @@
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"앱 만들기"]];
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"캐릭터 그리기"]];
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"타블렛으로 그리기"]];
-    NSLog(@"num: %lu", (unsigned long)_toDoItems.count);
-    todayController *todayCtr = [[todayController alloc] init];
-    todayCtr.toDoItems = _toDoItems;
     
     self.tableView.dataSource = self; //데이터소스 등록
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"]; //UITableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
-    //    [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"cell"]; //TableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
     
     //델리게이트 설정
+    self.tabBarController.delegate = self;
     self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.taskField.delegate = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:90/255.0 alpha:1.0];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnTableView:)];
     [self.tableView addGestureRecognizer:tap];
+}
+
+-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if ([viewController isKindOfClass:[TodayController class]]){
+        TodayController *todayCtr = (TodayController *) viewController;
+        todayCtr.toDoItems = self.toDoItems;
+    }
+    return TRUE;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +63,6 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:tapLocation];
     ToDoItem *item = _toDoItems[indexPath.row];
     item.isTodayItem = YES;
-    NSLog(@"haha $u", indexPath);
     [self.tableView reloadData];
     
     if (indexPath) { //we are in a tableview cell, let the gesture be handled by the view
@@ -100,8 +104,9 @@
     cell.backgroundColor = [self colorForIndex:indexPath.row];
     ToDoItem *item = _toDoItems[indexPath.row];
     if(item.isTodayItem) {
-     cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:90/255.0 alpha:1.0];
-        NSLog(@"green");
+        NSUInteger itemCount = _toDoItems.count -1;
+        float val = ((float)indexPath.row / (float)itemCount) * 0.9;
+     cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:val/255.0 alpha:1.0];
     }
     /*
      ToDoItem *item = _toDoItems[indexPath.row];

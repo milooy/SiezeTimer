@@ -1,41 +1,26 @@
 //
-//  todayController.m
+//  TodayController.m
 //  Seize
 //
 //  Created by Yurim Jin on 2014. 12. 28..
 //  Copyright (c) 2014년 Yurim Jin. All rights reserved.
 //
 
-#import "todayController.h"
+#import "TodayController.h"
+#import "InboxController.h"
 #import "ToDoItem.h"
 
-@interface todayController () {
-}
+@interface TodayController ()
 
 @end
 
-@implementation todayController
+@implementation TodayController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    InboxController *inboxCtr = [[InboxController alloc] init];
-//    _inboxCtr = [[InboxController alloc]init];
-
-//    _toDoItems = _inboxCtr.toDoItems;
-    
+    NSLog(@"str: %@", self.strB);
     self.tableView.dataSource = self; //데이터소스 등록
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"]; //UITableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
-    //    [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"cell"]; //TableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
-    NSLog(@"num: %lu", (unsigned long)_toDoItems.count);
-    
-    for (ToDoItem *item in _toDoItems) {
-        NSLog(@"hahahaha");
-        NSLog(@"todoItem: %@", item.text);
-        if (!item.isTodayItem) {
-
-        }
-        
-    }
     
     //델리게이트 설정
     self.tableView.delegate = self;
@@ -72,13 +57,12 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *ident = @"cell";
-    // re-use or create a cell
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
-    // find the to-do item for this index
     int index = [indexPath row];
     ToDoItem *item = _toDoItems[_toDoItems.count-index-1];
-    // set the text
-    cell.textLabel.text = item.text;
+    if (item.isTodayItem) {
+        cell.textLabel.text = item.text;
+    }
     return cell;
 }
 //단계별 색상 설정

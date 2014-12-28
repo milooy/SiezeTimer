@@ -102,7 +102,7 @@
         <!--Today-->
         <scene sceneID="R7z-vd-pLH">
             <objects>
-                <viewController id="UWW-ge-nD7" customClass="todayController" sceneMemberID="viewController">
+                <viewController id="UWW-ge-nD7" customClass="TodayController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NTJ-iu-heA"/>
                         <viewControllerLayoutGuide type="bottom" id="1jD-Ja-D02"/>
@@ -124,8 +124,8 @@
                                 <rect key="frame" x="276" y="28" width="22" height="22"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="addBtnClick:" destination="UWW-ge-nD7" eventType="touchUpInside" id="Hrf-7e-KHl"/>
                                     <action selector="addBtnClick:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="N59-qm-ygJ"/>
+                                    <action selector="addBtnClick:" destination="UWW-ge-nD7" eventType="touchUpInside" id="aGO-gI-dt1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -134,9 +134,9 @@
                     <tabBarItem key="tabBarItem" title="Today" image="first" id="3sz-7x-ujV"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="addBtn" destination="Slc-DI-UnV" id="nTE-3G-Unr"/>
-                        <outlet property="tableView" destination="vaP-bN-haL" id="yKd-Io-sIM"/>
-                        <outlet property="taskField" destination="Wxt-8W-JQc" id="WhR-d5-hO7"/>
+                        <outlet property="addBtn" destination="Slc-DI-UnV" id="1tZ-V6-04r"/>
+                        <outlet property="tableView" destination="vaP-bN-haL" id="W2c-gm-KFa"/>
+                        <outlet property="taskField" destination="Wxt-8W-JQc" id="Zv3-qB-QrL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rz-HN-mY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
