@@ -14,7 +14,9 @@
 @end
 
 @implementation InboxController
-
+-(void)viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -61,8 +63,13 @@
 -(void) didTapOnTableView:(UIGestureRecognizer*) recognizer {
     CGPoint tapLocation = [recognizer locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:tapLocation];
-    ToDoItem *item = _toDoItems[indexPath.row];
-    item.isTodayItem = YES;
+    ToDoItem *item = _toDoItems[_toDoItems.count-indexPath.row-1];
+    if(item.isTodayItem){
+        item.isTodayItem = NO;
+    } else {
+        item.isTodayItem = YES;
+    }
+//    item.isTodayItem = YES;
     [self.tableView reloadData];
     
     if (indexPath) { //we are in a tableview cell, let the gesture be handled by the view
@@ -102,18 +109,12 @@
 
 -(void)tableView: (UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = [self colorForIndex:indexPath.row];
-    ToDoItem *item = _toDoItems[indexPath.row];
+    ToDoItem *item = _toDoItems[_toDoItems.count-indexPath.row-1];
     if(item.isTodayItem) {
         NSUInteger itemCount = _toDoItems.count -1;
         float val = ((float)indexPath.row / (float)itemCount) * 0.9;
-     cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:val/255.0 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:val/255.0 alpha:1.0];
     }
-    /*
-     ToDoItem *item = _toDoItems[indexPath.row];
-     if (item.completed) {
-     cell.backgroundColor = [UIColor greenColor];
-     }
-     */
 }
 /*
 #pragma mark - Navigation
@@ -142,10 +143,4 @@
     return YES;
     
 }
-
--(NSMutableArray *)passTodoItems {
-    return _toDoItems;
-}
-
-
 @end
