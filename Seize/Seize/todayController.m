@@ -1,44 +1,41 @@
 //
-//  InboxController.m
+//  todayController.m
 //  Seize
 //
-//  Created by Yurim Jin on 2014. 11. 29..
+//  Created by Yurim Jin on 2014. 12. 28..
 //  Copyright (c) 2014년 Yurim Jin. All rights reserved.
 //
 
-#import "InboxController.h"
 #import "todayController.h"
 #import "ToDoItem.h"
 
-@interface InboxController () {
-//    NSMutableArray* _toDoItems;
+@interface todayController () {
 }
+
 @end
 
-@implementation InboxController
+@implementation todayController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    InboxController *inboxCtr = [[InboxController alloc] init];
+//    _inboxCtr = [[InboxController alloc]init];
 
-    _toDoItems = [[NSMutableArray alloc] init];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"iOS 공부하기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"공차 사먹기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"타블렛 사기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"김정교수님 찾아가기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"외주받아서 돈벌기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"고대생막창 먹기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"JWP 공부하기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"영화보기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"아이폰 사기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"앱 만들기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"캐릭터 그리기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"타블렛으로 그리기"]];
-    NSLog(@"num: %lu", (unsigned long)_toDoItems.count);
-    todayController *todayCtr = [[todayController alloc] init];
-    todayCtr.toDoItems = _toDoItems;
+//    _toDoItems = _inboxCtr.toDoItems;
     
     self.tableView.dataSource = self; //데이터소스 등록
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"]; //UITableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
     //    [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"cell"]; //TableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
+    NSLog(@"num: %lu", (unsigned long)_toDoItems.count);
+    
+    for (ToDoItem *item in _toDoItems) {
+        NSLog(@"hahahaha");
+        NSLog(@"todoItem: %@", item.text);
+        if (!item.isTodayItem) {
+
+        }
+        
+    }
     
     //델리게이트 설정
     self.tableView.delegate = self;
@@ -100,7 +97,7 @@
     cell.backgroundColor = [self colorForIndex:indexPath.row];
     ToDoItem *item = _toDoItems[indexPath.row];
     if(item.isTodayItem) {
-     cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:90/255.0 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:90/255.0 alpha:1.0];
         NSLog(@"green");
     }
     /*
@@ -111,14 +108,14 @@
      */
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)addBtnClick:(id)sender {
     [_toDoItems addObject:[ToDoItem toDoItemWithText:_taskField.text]];
@@ -137,10 +134,4 @@
     return YES;
     
 }
-
--(NSMutableArray *)passTodoItems {
-    return _toDoItems;
-}
-
-
 @end

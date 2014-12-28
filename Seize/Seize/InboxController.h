@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InboxController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface InboxController : UIViewController <UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 //@property (strong, nonatomic) IBOutlet UITableView *tableView;
 //@property (strong, nonatomic) IBOutlet UITextField *taskField;
 //- (IBAction)addBtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIButton *addBtn;
 @property (strong, nonatomic) IBOutlet UITextField *taskField;
+@property (retain,nonatomic) NSMutableArray *toDoItems;
 - (IBAction)addBtnClick:(id)sender;
 @end

@@ -54,7 +54,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type the task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Khi-Hw-at2">
-                                <rect key="frame" x="16" y="26" width="202" height="30"/>
+                                <rect key="frame" x="16" y="26" width="252" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -70,6 +70,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Inbox" image="second" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="addBtn" destination="tev-jG-5iC" id="g5d-EF-AZr"/>
                         <outlet property="tableView" destination="BWI-Sd-oP9" id="eos-hr-21C"/>
                         <outlet property="taskField" destination="Khi-Hw-at2" id="8gx-z9-q8w"/>
                     </connections>
@@ -101,7 +102,7 @@
         <!--Today-->
         <scene sceneID="R7z-vd-pLH">
             <objects>
-                <viewController id="UWW-ge-nD7" sceneMemberID="viewController">
+                <viewController id="UWW-ge-nD7" customClass="todayController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NTJ-iu-heA"/>
                         <viewControllerLayoutGuide type="bottom" id="1jD-Ja-D02"/>
@@ -114,11 +115,29 @@
                                 <rect key="frame" x="0.0" y="63" width="320" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type the task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wxt-8W-JQc">
+                                <rect key="frame" x="16" y="26" width="252" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slc-DI-UnV">
+                                <rect key="frame" x="276" y="28" width="22" height="22"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="addBtnClick:" destination="UWW-ge-nD7" eventType="touchUpInside" id="Hrf-7e-KHl"/>
+                                    <action selector="addBtnClick:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="N59-qm-ygJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.82527261419999998" blue="0.36726780710000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today" image="first" id="3sz-7x-ujV"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="addBtn" destination="Slc-DI-UnV" id="nTE-3G-Unr"/>
+                        <outlet property="tableView" destination="vaP-bN-haL" id="yKd-Io-sIM"/>
+                        <outlet property="taskField" destination="Wxt-8W-JQc" id="WhR-d5-hO7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rz-HN-mY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
