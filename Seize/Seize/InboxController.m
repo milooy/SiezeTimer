@@ -9,6 +9,7 @@
 #import "InboxController.h"
 #import "TodayController.h"
 #import "ToDoItem.h"
+#import "TableViewCell.h"
 
 @interface InboxController ()
 @end
@@ -35,7 +36,7 @@
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"타블렛으로 그리기"]];
     
     self.tableView.dataSource = self; //데이터소스 등록
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"]; //UITableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
+    [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"cell"]; //UITableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
     
     //델리게이트 설정
     self.tabBarController.delegate = self;
@@ -87,12 +88,16 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *ident = @"cell";
     // re-use or create a cell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
     // find the to-do item for this index
     int index = [indexPath row];
     ToDoItem *item = _toDoItems[_toDoItems.count-index-1];
     // set the text
-    cell.textLabel.text = item.text;
+//    cell.textLabel.text = item.text;
+    cell.delegate = self;
+    cell.todoItem = item;
+
     return cell;
 }
 //단계별 색상 설정
@@ -141,6 +146,18 @@
         return NO;
     }
     return YES;
+}
+
+-(void)toDoItemDeleted:(ToDoItem *)todoItem {
+    NSUInteger index = [_toDoItems indexOfObject:todoItem];
+    [self.tableView beginUpdates];
+    [_toDoItems removeObject:todoItem];
+    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_toDoItems.count-index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+    
+}
+
+-(void)toDoItemCompleted:(ToDoItem *)todoItem {
     
 }
 @end
