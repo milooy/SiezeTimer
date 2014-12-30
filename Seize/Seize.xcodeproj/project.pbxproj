@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A2049811A52F3C300A206FE /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A2049801A52F3C300A206FE /* Realm.framework */; };
+		1A2049821A52F3E300A206FE /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A61389F1A52B83200CBA1C1 /* libc++.dylib */; };
+		1A2049851A52F4E300A206FE /* ToDoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2049841A52F4E300A206FE /* ToDoModel.m */; };
 		1A8A9C6A1A4FD56500C4768C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C691A4FD56500C4768C /* main.m */; };
 		1A8A9C6D1A4FD56500C4768C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C6C1A4FD56500C4768C /* AppDelegate.m */; };
-		1A8A9C701A4FD56500C4768C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C6F1A4FD56500C4768C /* FirstViewController.m */; };
-		1A8A9C731A4FD56500C4768C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C721A4FD56500C4768C /* SecondViewController.m */; };
 		1A8A9C781A4FD56500C4768C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A9C771A4FD56500C4768C /* Images.xcassets */; };
 		1A8A9C7B1A4FD56500C4768C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A9C791A4FD56500C4768C /* LaunchScreen.xib */; };
 		1A8A9C871A4FD56500C4768C /* SeizeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C861A4FD56500C4768C /* SeizeTests.m */; };
@@ -36,15 +37,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A2049801A52F3C300A206FE /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		1A2049831A52F4E300A206FE /* ToDoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToDoModel.h; path = ../ToDoModel.h; sourceTree = "<group>"; };
+		1A2049841A52F4E300A206FE /* ToDoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToDoModel.m; path = ../ToDoModel.m; sourceTree = "<group>"; };
+		1A61389F1A52B83200CBA1C1 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		1A8A9C641A4FD56500C4768C /* Seize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8A9C681A4FD56500C4768C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A8A9C691A4FD56500C4768C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1A8A9C6B1A4FD56500C4768C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1A8A9C6C1A4FD56500C4768C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1A8A9C6E1A4FD56500C4768C /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		1A8A9C6F1A4FD56500C4768C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		1A8A9C711A4FD56500C4768C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		1A8A9C721A4FD56500C4768C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		1A8A9C771A4FD56500C4768C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1A8A9C7A1A4FD56500C4768C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1A8A9C801A4FD56500C4768C /* SeizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2049821A52F3E300A206FE /* libc++.dylib in Frameworks */,
+				1A2049811A52F3C300A206FE /* Realm.framework in Frameworks */,
 				1A8A9CDD1A506FA200C4768C /* CoreGraphics.framework in Frameworks */,
 				1A8A9CDB1A506F9600C4768C /* UIKit.framework in Frameworks */,
 			);
@@ -91,6 +94,8 @@
 		1A8A9C5B1A4FD56500C4768C = {
 			isa = PBXGroup;
 			children = (
+				1A2049801A52F3C300A206FE /* Realm.framework */,
+				1A61389F1A52B83200CBA1C1 /* libc++.dylib */,
 				1A8A9CDC1A506FA200C4768C /* CoreGraphics.framework */,
 				1A8A9CDA1A506F9600C4768C /* UIKit.framework */,
 				1A8A9C661A4FD56500C4768C /* Seize */,
@@ -114,10 +119,6 @@
 				1A8A9CE11A524F8D00C4768C /* Main.storyboard */,
 				1A8A9C6B1A4FD56500C4768C /* AppDelegate.h */,
 				1A8A9C6C1A4FD56500C4768C /* AppDelegate.m */,
-				1A8A9C6E1A4FD56500C4768C /* FirstViewController.h */,
-				1A8A9C6F1A4FD56500C4768C /* FirstViewController.m */,
-				1A8A9C711A4FD56500C4768C /* SecondViewController.h */,
-				1A8A9C721A4FD56500C4768C /* SecondViewController.m */,
 				1A8A9C771A4FD56500C4768C /* Images.xcassets */,
 				1A8A9C791A4FD56500C4768C /* LaunchScreen.xib */,
 				1A8A9C921A4FD63F00C4768C /* InboxController.h */,
@@ -134,6 +135,8 @@
 				1A8A9C671A4FD56500C4768C /* Supporting Files */,
 				1A8A9CDE1A50806F00C4768C /* TimerController.h */,
 				1A8A9CDF1A50806F00C4768C /* TimerController.m */,
+				1A2049831A52F4E300A206FE /* ToDoModel.h */,
+				1A2049841A52F4E300A206FE /* ToDoModel.m */,
 			);
 			path = Seize;
 			sourceTree = "<group>";
@@ -264,15 +267,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2049851A52F4E300A206FE /* ToDoModel.m in Sources */,
 				1A8A9C971A4FD69D00C4768C /* ToDoItem.m in Sources */,
 				1A8A9C9D1A50515900C4768C /* TodayController.m in Sources */,
 				1A8A9C941A4FD63F00C4768C /* InboxController.m in Sources */,
 				1A8A9CE01A50806F00C4768C /* TimerController.m in Sources */,
-				1A8A9C731A4FD56500C4768C /* SecondViewController.m in Sources */,
 				1A8A9CD91A506C9800C4768C /* StrikethroughLabel.m in Sources */,
 				1A8A9C6D1A4FD56500C4768C /* AppDelegate.m in Sources */,
 				1A8A9CD81A506C9800C4768C /* TableViewCell.m in Sources */,
-				1A8A9C701A4FD56500C4768C /* FirstViewController.m in Sources */,
 				1A8A9C6A1A4FD56500C4768C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,8 +389,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Seize/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -397,8 +404,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Seize/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
