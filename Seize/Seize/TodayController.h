@@ -16,6 +16,5 @@
 - (IBAction)addBtnClick:(id)sender;
 
 @property (strong, nonatomic) NSMutableArray *toDoItems;
-@property(readwrite, retain) NSString *strB;
 
 @end

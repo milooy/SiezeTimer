@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TimerController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *display;
+- (IBAction)buttonPressed:(id)sender;
 
 @end

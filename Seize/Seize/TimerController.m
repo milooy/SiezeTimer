@@ -8,7 +8,10 @@
 
 #import "TimerController.h"
 
-@interface TimerController ()
+@interface TimerController () {
+    bool start;
+    NSTimeInterval time;
+}
 
 @end
 
@@ -16,12 +19,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.display.text = @"0:00";
+    start = false;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)update {
+    if (start == false) {
+        return;
+    }
+
+    NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
+    NSTimeInterval elapsedTime = currentTime - time;
+    
+    int minutes = (int)(elapsedTime / 60.0);
+    int seconds = (int)(elapsedTime = elapsedTime - (minutes * 60));
+    
+    self.display.text = [NSString stringWithFormat:@"%u:%02u", minutes, seconds];
+    
+    // update 재귀호출
+    [self performSelector:@selector(update) withObject:self afterDelay:0.1];
 }
 
 /*
@@ -34,4 +55,16 @@
 }
 */
 
+- (IBAction)buttonPressed:(id)sender {
+    if (start == false) {
+        start = true;
+
+        time = [NSDate timeIntervalSinceReferenceDate];
+        [sender setTitle:@"Stop!" forState:UIControlStateNormal];
+        [self update];
+    }else {
+        start = false;
+        [sender setTitle:@"Start" forState:UIControlStateNormal];
+    }
+}
 @end
