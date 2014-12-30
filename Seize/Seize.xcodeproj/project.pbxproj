@@ -14,10 +14,15 @@
 		1A8A9C781A4FD56500C4768C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A9C771A4FD56500C4768C /* Images.xcassets */; };
 		1A8A9C7B1A4FD56500C4768C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A9C791A4FD56500C4768C /* LaunchScreen.xib */; };
 		1A8A9C871A4FD56500C4768C /* SeizeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C861A4FD56500C4768C /* SeizeTests.m */; };
-		1A8A9C911A4FD58600C4768C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A9C901A4FD58600C4768C /* Main.storyboard */; };
 		1A8A9C941A4FD63F00C4768C /* InboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C931A4FD63F00C4768C /* InboxController.m */; };
 		1A8A9C971A4FD69D00C4768C /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C961A4FD69D00C4768C /* ToDoItem.m */; };
 		1A8A9C9D1A50515900C4768C /* TodayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9C9C1A50515900C4768C /* TodayController.m */; };
+		1A8A9CD81A506C9800C4768C /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9CD41A506C9800C4768C /* TableViewCell.m */; };
+		1A8A9CD91A506C9800C4768C /* StrikethroughLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9CD71A506C9800C4768C /* StrikethroughLabel.m */; };
+		1A8A9CDB1A506F9600C4768C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8A9CDA1A506F9600C4768C /* UIKit.framework */; };
+		1A8A9CDD1A506FA200C4768C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8A9CDC1A506FA200C4768C /* CoreGraphics.framework */; };
+		1A8A9CE01A50806F00C4768C /* TimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A9CDF1A50806F00C4768C /* TimerController.m */; };
+		1A8A9CE21A524F8D00C4768C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A9CE11A524F8D00C4768C /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,13 +50,22 @@
 		1A8A9C801A4FD56500C4768C /* SeizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8A9C851A4FD56500C4768C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A8A9C861A4FD56500C4768C /* SeizeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeizeTests.m; sourceTree = "<group>"; };
-		1A8A9C901A4FD58600C4768C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1A8A9C921A4FD63F00C4768C /* InboxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxController.h; sourceTree = "<group>"; };
 		1A8A9C931A4FD63F00C4768C /* InboxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxController.m; sourceTree = "<group>"; };
 		1A8A9C951A4FD69D00C4768C /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
 		1A8A9C961A4FD69D00C4768C /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
 		1A8A9C9B1A50515900C4768C /* TodayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayController.h; sourceTree = "<group>"; };
 		1A8A9C9C1A50515900C4768C /* TodayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayController.m; sourceTree = "<group>"; };
+		1A8A9CD31A506C9800C4768C /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		1A8A9CD41A506C9800C4768C /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		1A8A9CD51A506C9800C4768C /* TableViewCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCellDelegate.h; sourceTree = "<group>"; };
+		1A8A9CD61A506C9800C4768C /* StrikethroughLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrikethroughLabel.h; sourceTree = "<group>"; };
+		1A8A9CD71A506C9800C4768C /* StrikethroughLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrikethroughLabel.m; sourceTree = "<group>"; };
+		1A8A9CDA1A506F9600C4768C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1A8A9CDC1A506FA200C4768C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1A8A9CDE1A50806F00C4768C /* TimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerController.h; sourceTree = "<group>"; };
+		1A8A9CDF1A50806F00C4768C /* TimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerController.m; sourceTree = "<group>"; };
+		1A8A9CE11A524F8D00C4768C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8A9CDD1A506FA200C4768C /* CoreGraphics.framework in Frameworks */,
+				1A8A9CDB1A506F9600C4768C /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +91,8 @@
 		1A8A9C5B1A4FD56500C4768C = {
 			isa = PBXGroup;
 			children = (
+				1A8A9CDC1A506FA200C4768C /* CoreGraphics.framework */,
+				1A8A9CDA1A506F9600C4768C /* UIKit.framework */,
 				1A8A9C661A4FD56500C4768C /* Seize */,
 				1A8A9C831A4FD56500C4768C /* SeizeTests */,
 				1A8A9C651A4FD56500C4768C /* Products */,
@@ -93,13 +111,13 @@
 		1A8A9C661A4FD56500C4768C /* Seize */ = {
 			isa = PBXGroup;
 			children = (
+				1A8A9CE11A524F8D00C4768C /* Main.storyboard */,
 				1A8A9C6B1A4FD56500C4768C /* AppDelegate.h */,
 				1A8A9C6C1A4FD56500C4768C /* AppDelegate.m */,
 				1A8A9C6E1A4FD56500C4768C /* FirstViewController.h */,
 				1A8A9C6F1A4FD56500C4768C /* FirstViewController.m */,
 				1A8A9C711A4FD56500C4768C /* SecondViewController.h */,
 				1A8A9C721A4FD56500C4768C /* SecondViewController.m */,
-				1A8A9C901A4FD58600C4768C /* Main.storyboard */,
 				1A8A9C771A4FD56500C4768C /* Images.xcassets */,
 				1A8A9C791A4FD56500C4768C /* LaunchScreen.xib */,
 				1A8A9C921A4FD63F00C4768C /* InboxController.h */,
@@ -108,7 +126,14 @@
 				1A8A9C9C1A50515900C4768C /* TodayController.m */,
 				1A8A9C951A4FD69D00C4768C /* ToDoItem.h */,
 				1A8A9C961A4FD69D00C4768C /* ToDoItem.m */,
+				1A8A9CD31A506C9800C4768C /* TableViewCell.h */,
+				1A8A9CD41A506C9800C4768C /* TableViewCell.m */,
+				1A8A9CD51A506C9800C4768C /* TableViewCellDelegate.h */,
+				1A8A9CD61A506C9800C4768C /* StrikethroughLabel.h */,
+				1A8A9CD71A506C9800C4768C /* StrikethroughLabel.m */,
 				1A8A9C671A4FD56500C4768C /* Supporting Files */,
+				1A8A9CDE1A50806F00C4768C /* TimerController.h */,
+				1A8A9CDF1A50806F00C4768C /* TimerController.m */,
 			);
 			path = Seize;
 			sourceTree = "<group>";
@@ -219,9 +244,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8A9CE21A524F8D00C4768C /* Main.storyboard in Resources */,
 				1A8A9C7B1A4FD56500C4768C /* LaunchScreen.xib in Resources */,
 				1A8A9C781A4FD56500C4768C /* Images.xcassets in Resources */,
-				1A8A9C911A4FD58600C4768C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,8 +267,11 @@
 				1A8A9C971A4FD69D00C4768C /* ToDoItem.m in Sources */,
 				1A8A9C9D1A50515900C4768C /* TodayController.m in Sources */,
 				1A8A9C941A4FD63F00C4768C /* InboxController.m in Sources */,
+				1A8A9CE01A50806F00C4768C /* TimerController.m in Sources */,
 				1A8A9C731A4FD56500C4768C /* SecondViewController.m in Sources */,
+				1A8A9CD91A506C9800C4768C /* StrikethroughLabel.m in Sources */,
 				1A8A9C6D1A4FD56500C4768C /* AppDelegate.m in Sources */,
+				1A8A9CD81A506C9800C4768C /* TableViewCell.m in Sources */,
 				1A8A9C701A4FD56500C4768C /* FirstViewController.m in Sources */,
 				1A8A9C6A1A4FD56500C4768C /* main.m in Sources */,
 			);
