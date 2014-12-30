@@ -13,6 +13,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *addBtn;
 @property (strong, nonatomic) IBOutlet UITextField *taskField;
 @property (strong,nonatomic) NSMutableArray *toDoItems;
-
 - (IBAction)addBtnClick:(id)sender;
+
 @end

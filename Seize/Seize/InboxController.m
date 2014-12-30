@@ -10,8 +10,11 @@
 #import "TodayController.h"
 #import "ToDoItem.h"
 #import "TableViewCell.h"
+#import "ToDoModel.h"
 
-@interface InboxController ()
+@interface InboxController (){
+
+}
 @end
 
 @implementation InboxController
@@ -35,9 +38,21 @@
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"캐릭터 그리기"]];
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"타블렛으로 그리기"]];
     
+    ToDoModel *toDoModel = [[ToDoModel alloc]init];
+    toDoModel.text = @"to do test";
+    
+    // Get the default Realm
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    // You only need to do this once (per thread)
+    
+    // Add to Realm with transaction
+    [realm beginWriteTransaction];
+    [realm addObject:toDoModel];
+    [realm commitWriteTransaction];
+    
     self.tableView.dataSource = self; //데이터소스 등록
     [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"cell"]; //UITableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
-    
+     
     //델리게이트 설정
     self.tabBarController.delegate = self;
     self.tableView.delegate = self;
@@ -70,7 +85,6 @@
     } else {
         item.isTodayItem = YES;
     }
-//    item.isTodayItem = YES;
     [self.tableView reloadData];
     
     if (indexPath) { //we are in a tableview cell, let the gesture be handled by the view
@@ -137,6 +151,7 @@
     [[self view] endEditing:YES];
     [self.tableView reloadData];
 }
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.taskField) {

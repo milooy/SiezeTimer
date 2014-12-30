@@ -21,6 +21,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [self addItemToday];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
