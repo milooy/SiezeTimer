@@ -49,15 +49,8 @@
     NSString *query = [NSString stringWithFormat:@"isTodayItem = 1"];
     RLMResults *rlmObjects = [ToDoModel objectsWhere:query];
     for (int i=0; i<rlmObjects.count; i++) {
-        NSLog(@"kaka: %@", rlmObjects[i][@"text"]);
         [todayItems addObject:[ToDoItem toDoItemWithText:rlmObjects[i][@"text"]]];
     }
-    
-//    for (ToDoItem *item in _toDoItems) {
-//        if(item.isTodayItem){
-//            [todayItems addObject:item];
-//        }
-//    }
     
     [self.tableView reloadData];
 }
@@ -119,22 +112,23 @@
         cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:90/255.0 alpha:1.0];
     }
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 - (IBAction)addBtnClick:(id)sender {
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:_taskField.text]];
-    [todayItems addObject:[ToDoItem toDoItemWithText:_taskField.text]];
-    _taskField.text = @"";
-    [[self view] endEditing:YES];
-    [self.tableView reloadData];
+    if(_taskField.text && _taskField.text.length > 0){
+        ToDoModel *toDoModel = [[ToDoModel alloc]init];
+        toDoModel.text = _taskField.text;
+        toDoModel.isTodayItem = true;
+
+        [_realm beginWriteTransaction];
+        [_realm addObject:toDoModel];
+        [_realm commitWriteTransaction];
+        
+        [_toDoItems addObject:[ToDoItem toDoItemWithText:_taskField.text]];
+        [todayItems addObject:[ToDoItem toDoItemWithText:_taskField.text]];
+        _taskField.text = @"";
+        [[self view] endEditing:YES];
+        [self.tableView reloadData];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
