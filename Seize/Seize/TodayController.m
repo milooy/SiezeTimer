@@ -44,11 +44,20 @@
 
 -(void)addItemToday {
     todayItems = [[NSMutableArray alloc] init];
-    for (ToDoItem *item in _toDoItems) {
-        if(item.isTodayItem){
-            [todayItems addObject:item];
-        }
+    
+    
+    NSString *query = [NSString stringWithFormat:@"isTodayItem = 1"];
+    RLMResults *rlmObjects = [ToDoModel objectsWhere:query];
+    for (int i=0; i<rlmObjects.count; i++) {
+        NSLog(@"kaka: %@", rlmObjects[i][@"text"]);
+        [todayItems addObject:[ToDoItem toDoItemWithText:rlmObjects[i][@"text"]]];
     }
+    
+//    for (ToDoItem *item in _toDoItems) {
+//        if(item.isTodayItem){
+//            [todayItems addObject:item];
+//        }
+//    }
     
     [self.tableView reloadData];
 }

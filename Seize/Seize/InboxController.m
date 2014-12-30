@@ -35,7 +35,6 @@
 
     RLMResults *toDos = [ToDoModel allObjects];
     for (int i=0; i<toDos.count; i++) {
-        NSLog(@"kaka: %@", toDos[i]);
         [_toDoItems addObject:[ToDoItem toDoItemWithText:toDos[i][@"text"]]];
     }
     
@@ -132,13 +131,12 @@
 -(void)tableView: (UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = [self colorForIndex:indexPath.row];
     ToDoItem *item = _toDoItems[_toDoItems.count-indexPath.row-1];
-    
     NSString *text = item.text;
     NSString *query = [NSString stringWithFormat:@"text = '%@'", text];
     RLMResults *rlmObjects = [ToDoModel objectsWhere:query];
     ToDoModel *toDoModel = [rlmObjects firstObject];
     
-    if(item.isTodayItem && toDoModel.isTodayItem) {
+    if(toDoModel.isTodayItem) {
         NSUInteger itemCount = _toDoItems.count -1;
         float val = ((float)indexPath.row / (float)itemCount) * 0.9;
         cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:val/255.0 alpha:0.3];
@@ -156,8 +154,6 @@
 
 - (IBAction)addBtnClick:(id)sender {
     if(_taskField.text && _taskField.text.length > 0){
-        NSLog(@"not empty: %@", _taskField.text);
-        
         ToDoModel *toDoModel = [[ToDoModel alloc]init];
         toDoModel.text = _taskField.text;
         
