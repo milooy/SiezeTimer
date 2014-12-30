@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "InboxController.h"
+#import "ToDoModel.h"
 
 @interface TodayController : UIViewController<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -16,5 +17,6 @@
 - (IBAction)addBtnClick:(id)sender;
 
 @property (strong, nonatomic) NSMutableArray *toDoItems;
+@property RLMRealm *realm;
 
 @end

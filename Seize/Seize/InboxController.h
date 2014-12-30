@@ -6,6 +6,7 @@
 //  Copyright (c) 2014년 Yurim Jin. All rights reserved.
 //
 #import <UIKit/UIKit.h>
+#import "ToDoModel.h"
 
 @interface InboxController : UIViewController <UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate>
 
@@ -13,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *addBtn;
 @property (strong, nonatomic) IBOutlet UITextField *taskField;
 @property (strong,nonatomic) NSMutableArray *toDoItems;
+@property RLMRealm *realm;
 - (IBAction)addBtnClick:(id)sender;
 
 @end

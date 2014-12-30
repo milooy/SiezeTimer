@@ -10,19 +10,19 @@
 #import "TodayController.h"
 #import "ToDoItem.h"
 #import "TableViewCell.h"
-#import "ToDoModel.h"
 
-@interface InboxController (){
-    RLMRealm *realm;
-}
+@interface InboxController ()
 @end
 
 @implementation InboxController
+@synthesize realm;
+
 -(void)viewDidAppear:(BOOL)animated {
     [self.tableView reloadData];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 
     _toDoItems = [[NSMutableArray alloc] init];
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"iOS 공부하기"]];
@@ -58,6 +58,7 @@
     if ([viewController isKindOfClass:[TodayController class]]){
         TodayController *todayCtr = (TodayController *) viewController;
         todayCtr.toDoItems = self.toDoItems;
+        todayCtr.realm = self.realm;
     }
     return TRUE;
 }
@@ -70,9 +71,21 @@
     CGPoint tapLocation = [recognizer locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:tapLocation];
     ToDoItem *item = _toDoItems[_toDoItems.count-indexPath.row-1];
+    
+    NSString *text = item.text;
+    NSString *query = [NSString stringWithFormat:@"text = '%@'", text];
+    RLMResults *rlmObjects = [ToDoModel objectsWhere:query];
+    ToDoModel *toDoModel = [rlmObjects firstObject];
+
     if(item.isTodayItem){
         item.isTodayItem = NO;
+        [realm beginWriteTransaction];
+        toDoModel.isTodayItem = false;
+        [realm commitWriteTransaction];
     } else {
+        [realm beginWriteTransaction];
+        toDoModel.isTodayItem = true;
+        [realm commitWriteTransaction];
         item.isTodayItem = YES;
     }
     [self.tableView reloadData];
@@ -119,7 +132,13 @@
 -(void)tableView: (UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = [self colorForIndex:indexPath.row];
     ToDoItem *item = _toDoItems[_toDoItems.count-indexPath.row-1];
-    if(item.isTodayItem) {
+    
+    NSString *text = item.text;
+    NSString *query = [NSString stringWithFormat:@"text = '%@'", text];
+    RLMResults *rlmObjects = [ToDoModel objectsWhere:query];
+    ToDoModel *toDoModel = [rlmObjects firstObject];
+    
+    if(item.isTodayItem && toDoModel.isTodayItem) {
         NSUInteger itemCount = _toDoItems.count -1;
         float val = ((float)indexPath.row / (float)itemCount) * 0.9;
         cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:val/255.0 alpha:0.3];
@@ -172,7 +191,6 @@
     [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_toDoItems.count-index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
     NSString *text = todoItem.text;
     NSString *query = [NSString stringWithFormat:@"text = '%@'", text];
-    
     RLMResults *rlmObject = [ToDoModel objectsWhere:query];
     [realm beginWriteTransaction];
     [realm deleteObject:rlmObject.firstObject];
