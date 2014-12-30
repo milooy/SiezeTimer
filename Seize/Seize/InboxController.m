@@ -38,8 +38,13 @@
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"캐릭터 그리기"]];
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"타블렛으로 그리기"]];
     
+    
     ToDoModel *toDoModel = [[ToDoModel alloc]init];
-    toDoModel.text = @"to do test";
+    toDoModel.text = @"test1";
+    ToDoModel *toDoModel2 = [[ToDoModel alloc]init];
+    toDoModel2.text = @"test2";
+    ToDoModel *toDoModel3 = [[ToDoModel alloc]init];
+    toDoModel3.text = @"test3";
     
     // Get the default Realm
     RLMRealm *realm = [RLMRealm defaultRealm];
@@ -48,7 +53,16 @@
     // Add to Realm with transaction
     [realm beginWriteTransaction];
     [realm addObject:toDoModel];
+        [realm addObject:toDoModel2];    [realm addObject:toDoModel3];
     [realm commitWriteTransaction];
+    
+    
+
+    RLMResults *toDos = [ToDoModel allObjects];
+    for (int i=0; i<toDos.count; i++) {
+        NSLog(@"kaka: %@", toDos[i]);
+    }
+    
     
     self.tableView.dataSource = self; //데이터소스 등록
     [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"cell"]; //UITableViewCell 클래스를 테이블뷰에 공급하는걸로 만듦
@@ -146,6 +160,19 @@
 */
 
 - (IBAction)addBtnClick:(id)sender {
+    ToDoModel *toDoModel = [[ToDoModel alloc]init];
+    toDoModel.text = _taskField.text;
+    
+    // Get the default Realm
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    // You only need to do this once (per thread)
+    
+    // Add to Realm with transaction
+    [realm beginWriteTransaction];
+    [realm addObject:toDoModel];
+    [realm commitWriteTransaction];
+
+    
     [_toDoItems addObject:[ToDoItem toDoItemWithText:_taskField.text]];
     _taskField.text = @"";
     [[self view] endEditing:YES];
