@@ -13,7 +13,7 @@
 #import "ToDoModel.h"
 
 @interface InboxController (){
-
+    RLMRealm *realm;
 }
 @end
 
@@ -28,39 +28,15 @@
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"iOS 공부하기"]];
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"공차 사먹기"]];
     [_toDoItems addObject:[ToDoItem toDoItemWithText:@"타블렛 사기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"김정교수님 찾아가기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"외주받아서 돈벌기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"고대생막창 먹기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"JWP 공부하기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"영화보기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"아이폰 사기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"앱 만들기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"캐릭터 그리기"]];
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:@"타블렛으로 그리기"]];
-    
-    
-    ToDoModel *toDoModel = [[ToDoModel alloc]init];
-    toDoModel.text = @"test1";
-    ToDoModel *toDoModel2 = [[ToDoModel alloc]init];
-    toDoModel2.text = @"test2";
-    ToDoModel *toDoModel3 = [[ToDoModel alloc]init];
-    toDoModel3.text = @"test3";
     
     // Get the default Realm
-    RLMRealm *realm = [RLMRealm defaultRealm];
+    realm = [RLMRealm defaultRealm];
     // You only need to do this once (per thread)
-    
-    // Add to Realm with transaction
-    [realm beginWriteTransaction];
-    [realm addObject:toDoModel];
-        [realm addObject:toDoModel2];    [realm addObject:toDoModel3];
-    [realm commitWriteTransaction];
-    
-    
 
     RLMResults *toDos = [ToDoModel allObjects];
     for (int i=0; i<toDos.count; i++) {
         NSLog(@"kaka: %@", toDos[i]);
+        [_toDoItems addObject:[ToDoItem toDoItemWithText:toDos[i][@"text"]]];
     }
     
     
@@ -160,23 +136,22 @@
 */
 
 - (IBAction)addBtnClick:(id)sender {
-    ToDoModel *toDoModel = [[ToDoModel alloc]init];
-    toDoModel.text = _taskField.text;
-    
-    // Get the default Realm
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    // You only need to do this once (per thread)
-    
-    // Add to Realm with transaction
-    [realm beginWriteTransaction];
-    [realm addObject:toDoModel];
-    [realm commitWriteTransaction];
-
-    
-    [_toDoItems addObject:[ToDoItem toDoItemWithText:_taskField.text]];
-    _taskField.text = @"";
-    [[self view] endEditing:YES];
-    [self.tableView reloadData];
+    if(_taskField.text && _taskField.text.length > 0){
+        NSLog(@"not empty: %@", _taskField.text);
+        
+        ToDoModel *toDoModel = [[ToDoModel alloc]init];
+        toDoModel.text = _taskField.text;
+        
+        // Add to Realm with transaction
+        [realm beginWriteTransaction];
+        [realm addObject:toDoModel];
+        [realm commitWriteTransaction];
+        
+        [_toDoItems addObject:[ToDoItem toDoItemWithText:_taskField.text]];
+        _taskField.text = @"";
+        [[self view] endEditing:YES];
+        [self.tableView reloadData];
+    }
 }
 
 
@@ -195,6 +170,14 @@
     [self.tableView beginUpdates];
     [_toDoItems removeObject:todoItem];
     [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_toDoItems.count-index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    NSString *text = todoItem.text;
+    NSString *query = [NSString stringWithFormat:@"text = '%@'", text];
+    
+    RLMResults *rlmObject = [ToDoModel objectsWhere:query];
+    [realm beginWriteTransaction];
+    [realm deleteObject:rlmObject.firstObject];
+    [realm commitWriteTransaction];
+    
     [self.tableView endUpdates];
     
 }
