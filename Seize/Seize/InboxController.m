@@ -118,7 +118,7 @@
     if(item.isTodayItem) {
         NSUInteger itemCount = _toDoItems.count -1;
         float val = ((float)indexPath.row / (float)itemCount) * 0.9;
-        cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:val/255.0 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:237/255.0 green:107/255.0 blue:val/255.0 alpha:0.3];
     }
 }
 /*

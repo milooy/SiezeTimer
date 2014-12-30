@@ -62,7 +62,8 @@
                                 <rect key="frame" x="276" y="28" width="22" height="22"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="addBtnClick:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="YKt-Tg-tzR"/>
+                                    <action selector="addBtn:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="1JE-wl-1ND"/>
+                                    <action selector="addBtnClick:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ffx-Ey-Oeu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,9 +71,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Inbox" image="second" id="cPa-gy-q4n"/>
                     <connections>
-                        <outlet property="addBtn" destination="tev-jG-5iC" id="g5d-EF-AZr"/>
-                        <outlet property="tableView" destination="BWI-Sd-oP9" id="eos-hr-21C"/>
-                        <outlet property="taskField" destination="Khi-Hw-at2" id="8gx-z9-q8w"/>
+                        <outlet property="addBtn" destination="tev-jG-5iC" id="ILf-t7-o98"/>
+                        <outlet property="tableView" destination="BWI-Sd-oP9" id="H7d-Hr-Ouf"/>
+                        <outlet property="taskField" destination="Khi-Hw-at2" id="6Oa-FY-OxC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -115,17 +116,18 @@
                                 <rect key="frame" x="0.0" y="63" width="320" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type the task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wxt-8W-JQc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type the task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKQ-s6-Ib9">
                                 <rect key="frame" x="16" y="26" width="252" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slc-DI-UnV">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ncx-dk-jf7">
                                 <rect key="frame" x="276" y="28" width="22" height="22"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="addBtnClick:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="N59-qm-ygJ"/>
-                                    <action selector="addBtnClick:" destination="UWW-ge-nD7" eventType="touchUpInside" id="aGO-gI-dt1"/>
+                                    <action selector="addBtn:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="RkH-C9-HJG"/>
+                                    <action selector="addBtnClick:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="96Y-8q-Q3c"/>
+                                    <action selector="addBtnClick:" destination="UWW-ge-nD7" eventType="touchUpInside" id="JVq-8H-w8e"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -134,9 +136,9 @@
                     <tabBarItem key="tabBarItem" title="Today" image="first" id="3sz-7x-ujV"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="addBtn" destination="Slc-DI-UnV" id="1tZ-V6-04r"/>
-                        <outlet property="tableView" destination="vaP-bN-haL" id="W2c-gm-KFa"/>
-                        <outlet property="taskField" destination="Wxt-8W-JQc" id="Zv3-qB-QrL"/>
+                        <outlet property="addBtn" destination="Ncx-dk-jf7" id="sHb-fH-3sg"/>
+                        <outlet property="tableView" destination="vaP-bN-haL" id="V7h-hu-2wW"/>
+                        <outlet property="taskField" destination="rKQ-s6-Ib9" id="eBJ-sq-WHC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rz-HN-mY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
